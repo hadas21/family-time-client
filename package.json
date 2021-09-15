@@ -1,6 +1,6 @@
 {
-  "homepage": "http://<git-name>.github.io/<repo-name>",
-  "name": "react-auth-template",
+  "homepage": "http://hadas21.github.io/family-time-client",
+  "name": "family-time-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

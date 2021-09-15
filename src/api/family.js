@@ -1,10 +1,13 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const createFamily = (data) => {
+export const createFamily = (data, user) => {
   return axios({
     method: 'POST',
-    url: apiUrl + '/families/create/',
+    url: apiUrl + '/families/',
+    headers: {
+      Authorization: `Token ${user.token}`
+    },
     data: {
       family: {
         name: data.name,
@@ -14,7 +17,7 @@ export const createFamily = (data) => {
   })
 }
 
-export const indexFamily = (user) => {
+export const indexFamilies = (user) => {
   return axios({
     method: 'GET',
     url: apiUrl + '/families/',

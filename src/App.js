@@ -11,6 +11,9 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
+import Families from './components/family/Families'
+import FamModal from './components/family/Modal'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -91,6 +94,17 @@ class App extends Component {
             path='/families'
             render={() => (
               <Families
+                msgAlert={this.msgAlert}
+                clearUser={this.clearUser}
+                user={user}
+              />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/families/modal'
+            render={() => (
+              <FamModal
                 msgAlert={this.msgAlert}
                 clearUser={this.clearUser}
                 user={user}

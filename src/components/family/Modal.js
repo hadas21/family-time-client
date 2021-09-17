@@ -20,13 +20,13 @@ function FamModal (props) {
     setFamily({ name: event.target.value })
   }
 
-  const { createdFam, setCreatedFam } = props
+  const { createdTrigger } = props
   const handleSubmit = event => {
     event.preventDefault()
 
     createFamily(family, props.user)
-      .then(setShow(false))
-      .then(setCreatedFam(!createdFam))
+      .then(() => setShow(false))
+      .then(() => createdTrigger())
       .catch(console.error)
   }
 

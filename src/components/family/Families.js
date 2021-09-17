@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import FamModal from './Modal'
 import { withRouter, Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import { indexFamilies } from '../../api/familyApi'
 
-import Button from 'react-bootstrap/Button'
-
 function Families (props) {
   const [families, setFamilies] = useState([])
-  const [createdFam, setCreatedFam] = useState(false)
 
+  const { user, created } = props
   useEffect(() => {
-    indexFamilies(props.user)
-      .then(res => {
-        console.log(res)
-        return res
-      })
-      .then(res => setFamilies(res.data.families))
-      .then(console.log(families))
+    indexFamilies(user)
+      .then((res) => setFamilies(res.data.families))
+      .then(() => console.log(families, created))
       .catch(console.error)
-  }, [createdFam])
+  }, [created])
 
   const allCreatedFams = families.map((fam) => (
     <Link key={fam.id} to={`/families/${fam.id}`}>
@@ -38,9 +33,8 @@ function Families (props) {
   return (
     <>
       <FamModal
-        user={props.user}
-        setCreatedFam={setCreatedFam}
-        createdFam={createdFam}
+        user={user}
+        createdTrigger={props.createdTrigger}
       />
       <ul>{allCreatedFams}</ul>
     </>

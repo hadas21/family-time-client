@@ -12,7 +12,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
 import Families from './components/family/Families'
-import FamModal from './components/family/Modal'
+import Family from './components/family/Family'
 
 class App extends Component {
   constructor (props) {
@@ -91,6 +91,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
+            exact
             path='/families'
             render={() => (
               <Families
@@ -102,9 +103,9 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            path='/families/modal'
+            path='/families/:id'
             render={() => (
-              <FamModal
+              <Family
                 msgAlert={this.msgAlert}
                 clearUser={this.clearUser}
                 user={user}

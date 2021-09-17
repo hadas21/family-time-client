@@ -27,6 +27,16 @@ export const indexFamilies = (user) => {
   })
 }
 
+export const showFamily = (user, familyPk) => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + `/families/${familyPk}`,
+    headers: {
+      Authorization: `Token ${user.token}`
+    }
+  })
+}
+
 export const deleteFamily = (user, familyPk) => {
   return axios({
     url: apiUrl + `/families/${familyPk}`,

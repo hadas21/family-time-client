@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
-import { createFamily } from '../../api/family'
+import { createFamily } from '../../api/familyApi'
 
 function FamModal (props) {
   const [family, setFamily] = useState({ name: '', members: [] })
@@ -20,11 +20,13 @@ function FamModal (props) {
     setFamily({ name: event.target.value })
   }
 
+  const { createdFam, setCreatedFam } = props
   const handleSubmit = event => {
     event.preventDefault()
 
     createFamily(family, props.user)
-      .then((res) => console.log(res))
+      .then(setShow(false))
+      .then(setCreatedFam(!createdFam))
       .catch(console.error)
   }
 

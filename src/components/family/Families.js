@@ -1,25 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FamModal from './Modal'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
-import { indexFamilies } from '../../api/family'
+import { indexFamilies } from '../../api/familyApi'
+
+import Button from 'react-bootstrap/Button'
 
 function Families (props) {
-  const [createdFams, setCreatedFams] = useState(null)
+  const [families, setFamilies] = useState([])
+  const [createdFam, setCreatedFam] = useState(false)
+
   useEffect(() => {
     indexFamilies(props.user)
       .then(res => {
         console.log(res)
         return res
       })
-      .then(res => setCreatedFams(res))
-      .then(console.log(createdFams))
+      .then(res => setFamilies(res.data.families))
+      .then(console.log(families))
       .catch(console.error)
-  }, [])
+  }, [createdFam])
+
+  const allCreatedFams = families.map((fam) => (
+    <Link key={fam.id} to={`/families/${fam.id}`}>
+      <Button variant='dark' type='button'>
+        {fam.name}
+      </Button>
+    </Link>
+  ))
+
+  if (!families) {
+    return (
+      <h3>you did not create any families yet...</h3>
+    )
+  }
 
   return (
     <>
-      <FamModal user={props.user}/>
+      <FamModal
+        user={props.user}
+        setCreatedFam={setCreatedFam}
+        createdFam={createdFam}
+      />
+      <ul>{allCreatedFams}</ul>
     </>
   )
 }

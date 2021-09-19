@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import FamModal from './Modal'
+
 import { withRouter, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
@@ -32,10 +32,7 @@ function Families (props) {
 
   return (
     <>
-      <FamModal
-        user={user}
-        createdTrigger={props.createdTrigger}
-      />
+
       <ul>{allCreatedFams}</ul>
     </>
   )

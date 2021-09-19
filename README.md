@@ -36,6 +36,11 @@ Be with your family wherever you go. With Family Time, you can create your own f
 ![version 1](/src/img/wireframe.png)
 
 ---
+## Unsolved Problems:
+- when creating a family, the family members array does not populate with the members. right now, that code is commented out in the client side, but the backend does have a member field in the family model that always stays empty. 
+- I used a button for the create family icon and when it is clicked, a border shows up. couldn't get rid of it. the same thing happens in the family component. the family name is editable because it is in a form input element without a border. 
+
+---
 ## Instructions:
 
 Feel free to add any cool features to my app! to do that, follow the steps below:
@@ -48,3 +53,9 @@ Feel free to add any cool features to my app! to do that, follow the steps below
 - open a pull request
 
 ### [Api Documentation](api.md)
+---
+## Links:
+
+- [Family Time Api Repo](https://github.com/hadas21/FamilyTimeApi)
+- [Family Time deployed website]()
+- [Family Time deployed back end]()

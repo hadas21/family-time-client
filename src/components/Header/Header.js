@@ -1,44 +1,109 @@
 import React, { Fragment } from 'react'
-import Nav from 'react-bootstrap/Nav'
+// import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import { FiLogOut, FiUser } from 'react-icons/fi'
 
-const authenticatedOptions = (
-  <Fragment>
-    <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
-    <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
-  </Fragment>
-)
+import { IconContext } from 'react-icons'
+
+import FamModal from '../family/Modal'
+
+// const authenticatedOptions = (
+//   <>
+//     <NavLink to='/change-password' className='nav-link col-3 px-auto'>
+//       <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+//         <div>
+//           <FiUser />
+//         </div>
+//       </IconContext.Provider>
+//     </NavLink>
+//     <NavLink to='/change-password' className='nav-link col-3 px-auto'>
+//       <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+//         <div>
+//           <FamModal user={user} createdTrigger={createdTrigger} />
+//           <BiMessageSquareAdd />
+//         </div>
+//       </IconContext.Provider>
+//     </NavLink>
+//     <NavLink to='/sign-out' className='nav-link col-3 px-auto'>
+//       <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+//         <div>
+//           <FiLogOut />
+//         </div>
+//       </IconContext.Provider>
+//     </NavLink>
+//   </>
+// )
 
 const unauthenticatedOptions = (
-  <Fragment>
-    <NavLink to='/sign-up' className='nav-link'>Sign Up</NavLink>
-    <NavLink to='/sign-in' className='nav-link'>Sign In</NavLink>
-  </Fragment>
+  <>
+    <NavLink to='/sign-up' className='nav-link col-5 px-auto'>
+      <Button className='col-12' variant='dark'>
+Register
+      </Button>
+    </NavLink>
+    <NavLink to='/sign-in' className='nav-link col-5 px-auto'>
+      <Button className='col-12' variant='outline-dark'>
+Log In
+      </Button>
+    </NavLink>
+  </>
 )
 
-const alwaysOptions = (
-  <Fragment>
-    <NavLink exact to='/' className='nav-link'>Home</NavLink>
-  </Fragment>
-)
+// const alwaysOptions = (
+//   <Fragment>
+//     <NavLink exact to='/' className='nav-link'>Home</NavLink>
+//   </Fragment>
+// )
 
-const Header = ({ user }) => (
-  <Navbar bg='dark' variant='dark' expand='md'>
-    <Navbar.Brand>
-      <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>Family Time</Link>
-    </Navbar.Brand>
-    <Navbar.Toggle aria-controls='basic-navbar-nav' />
-    <Navbar.Collapse id='basic-navbar-nav'>
-      <Nav className='ml-auto'>
+const Header = ({ user, createdTrigger }) => (
+  <>
+    <Navbar
+      bg='transparent'
+      variant='dark'
+      expand='md'
+      className='p-2 row'
+      fixed='bottom'>
+      {/* <Navbar.Toggle aria-controls='basic-navbar-nav' /> */}
+
+      <>
         {user && (
           <span className='navbar-text mr-2'>Welcome, {user.email}</span>
         )}
-        {alwaysOptions}
-        {user ? authenticatedOptions : unauthenticatedOptions}
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
+        {/* {alwaysOptions} */}
+        {user
+          ? (
+            <>
+              <NavLink to='/change-password' className='nav-link col-3 px-auto'>
+                <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+                  <div>
+                    <FiUser />
+                  </div>
+                </IconContext.Provider>
+              </NavLink>
+              <NavLink to='/change-password' className='nav-link col-3 px-auto'>
+                <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+                  <div>
+                    <FamModal user={user} createdTrigger={createdTrigger} />
+                  </div>
+                </IconContext.Provider>
+              </NavLink>
+              <NavLink to='/sign-out' className='nav-link col-3 px-auto'>
+                <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+                  <div>
+                    <FiLogOut />
+                  </div>
+                </IconContext.Provider>
+              </NavLink>
+            </>
+          )
+          : (
+            unauthenticatedOptions
+          )}
+      </>
+    </Navbar>
+  </>
 )
 
 export default Header

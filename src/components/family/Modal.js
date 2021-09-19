@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import { BiMessageSquareAdd } from 'react-icons/bi'
 
 import { createFamily } from '../../api/familyApi'
 
@@ -32,8 +33,8 @@ function FamModal (props) {
 
   return (
     <>
-      <Button variant="dark" onClick={handleShow}>
-        Create Family
+      <Button variant='' bg='transparent' onClick={handleShow}>
+        <BiMessageSquareAdd />
       </Button>
 
       <Modal show={show} onHide={handleClose}>

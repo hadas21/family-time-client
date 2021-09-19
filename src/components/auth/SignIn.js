@@ -52,12 +52,12 @@ render () {
 
   return (
     <div className='row'>
-      <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Sign In</h3>
+      <div className='col-sm-10 col-md-8 mx-auto mt-5 pt-5'>
+        <h3>Log In</h3>
         <Form onSubmit={this.onSignIn}>
           <Form.Group controlId='email'>
-            <Form.Label>Email address</Form.Label>
             <Form.Control
+              className='mb-3 mt-4 border border-dark rounded-0 p-2'
               required
               type='email'
               name='email'
@@ -67,8 +67,8 @@ render () {
             />
           </Form.Group>
           <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
             <Form.Control
+              className='mb-3 border border-dark rounded-0 p-2'
               required
               name='password'
               value={password}
@@ -77,7 +77,11 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <div className='d-grid gap-2 rounded-3'>
+            <Button className='p-2' variant='dark' type='submit'>
+Submit
+            </Button>
+          </div>
         </Form>
       </div>
     </div>

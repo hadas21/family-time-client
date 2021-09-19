@@ -51,12 +51,12 @@ render () {
 
   return (
     <div className='row'>
-      <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+      <div className='col-sm-10 col-md-8 mx-auto mt-5 pt-5'>
         <h3>Change Password</h3>
         <Form onSubmit={this.onChangePassword}>
           <Form.Group controlId='oldPassword'>
-            <Form.Label>Old password</Form.Label>
             <Form.Control
+              className='mb-3 mt-4 border border-dark rounded-0 p-2'
               required
               name='oldPassword'
               value={oldPassword}
@@ -66,8 +66,8 @@ render () {
             />
           </Form.Group>
           <Form.Group controlId='newPassword'>
-            <Form.Label>New Password</Form.Label>
             <Form.Control
+              className='mb-3 border border-dark rounded-0 p-2'
               required
               name='newPassword'
               value={newPassword}
@@ -76,7 +76,11 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <div className='d-grid gap-2 rounded-3'>
+            <Button variant='dark' type='submit'>
+Submit
+            </Button>
+          </div>
         </Form>
       </div>
     </div>

@@ -13,6 +13,7 @@ import ChangePassword from './components/auth/ChangePassword'
 
 import Families from './components/family/Families'
 import Family from './components/family/Family'
+import logo from './img/logo.png'
 
 class App extends Component {
   constructor (props) {
@@ -53,6 +54,10 @@ render () {
   return (
     <Fragment>
       <Header user={user} />
+      <img
+        src={logo}
+        className='position-absolute bottom-0 start-50 translate-middle-x'
+      />
       {msgAlerts.map((msgAlert) => (
         <AutoDismissAlert
           key={msgAlert.id}
@@ -103,7 +108,6 @@ render () {
               user={user}
               createdTrigger={this.createdTrigger}
               created={created}
-
             />
           )}
         />

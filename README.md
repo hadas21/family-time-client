@@ -1,6 +1,8 @@
 # Family Time
 
-be with your family wherever you go.
+Be with your family wherever you go. With Family Time, you can create your own family group and add your loved ones as members in your family.
+
+---
 
 ## user stories
 
@@ -12,3 +14,37 @@ be with your family wherever you go.
 - As a signed in user, I would like to join a family as a member.
 - As a signed in user, I would like to update/delete my family members.
 - v2: As a signed in user, I would like to share photos with my family.
+---
+
+## Technologies used
+
+### Front End:
+
+- React js
+- React-BootStrap
+- Css
+
+### Back End:
+- Django
+- Python
+- Heroku
+
+---
+## Planning
+
+### WireFrames (version 1):
+![version 1](/src/img/wireframe.png)
+
+---
+## Instructions:
+
+Feel free to add any cool features to my app! to do that, follow the steps below:
+- fork and clone this repo
+- `cd` into the new directory
+- run `npm install`
+- checkout to a new branch
+- add your cool feature
+- push your code 
+- open a pull request
+
+### [Api Documentation](api.md)

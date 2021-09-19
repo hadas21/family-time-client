@@ -1,1 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
+
+.container{
+    height: 100vh;
+    background-color: #f9f5e3;
+}
+
+
+#logo {
+    z-index: 0;
+}
+
+#family-name {
+    border: 0;
+    box-shadow: none;
+    
+}
+#family-name:focus{
+    outline: none !important;
+}

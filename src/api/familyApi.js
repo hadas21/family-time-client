@@ -49,7 +49,7 @@ export const deleteFamily = (user, familyPk) => {
 
 export const updateFamily = (data, user, familyPk) => {
   return axios({
-    url: apiUrl + `/families/${familyPk}`,
+    url: apiUrl + `/families/${familyPk}/`,
     method: 'PATCH',
     headers: {
       Authorization: `Token ${user.token}`

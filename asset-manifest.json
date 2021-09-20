@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/family-time-client/static/css/main.9aff1dcd.chunk.css",
-    "main.js": "/family-time-client/static/js/main.993fba9d.chunk.js",
-    "main.js.map": "/family-time-client/static/js/main.993fba9d.chunk.js.map",
+    "main.js": "/family-time-client/static/js/main.12a328d1.chunk.js",
+    "main.js.map": "/family-time-client/static/js/main.12a328d1.chunk.js.map",
     "runtime-main.js": "/family-time-client/static/js/runtime-main.f674354a.js",
     "runtime-main.js.map": "/family-time-client/static/js/runtime-main.f674354a.js.map",
-    "static/js/2.c87b2919.chunk.js": "/family-time-client/static/js/2.c87b2919.chunk.js",
-    "static/js/2.c87b2919.chunk.js.map": "/family-time-client/static/js/2.c87b2919.chunk.js.map",
+    "static/js/2.06a0f6ba.chunk.js": "/family-time-client/static/js/2.06a0f6ba.chunk.js",
+    "static/js/2.06a0f6ba.chunk.js.map": "/family-time-client/static/js/2.06a0f6ba.chunk.js.map",
     "index.html": "/family-time-client/index.html",
     "static/css/main.9aff1dcd.chunk.css.map": "/family-time-client/static/css/main.9aff1dcd.chunk.css.map",
-    "static/js/2.c87b2919.chunk.js.LICENSE.txt": "/family-time-client/static/js/2.c87b2919.chunk.js.LICENSE.txt",
+    "static/js/2.06a0f6ba.chunk.js.LICENSE.txt": "/family-time-client/static/js/2.06a0f6ba.chunk.js.LICENSE.txt",
     "static/media/logo.49d53827.png": "/family-time-client/static/media/logo.49d53827.png"
   },
   "entrypoints": [
     "static/js/runtime-main.f674354a.js",
-    "static/js/2.c87b2919.chunk.js",
+    "static/js/2.06a0f6ba.chunk.js",
     "static/css/main.9aff1dcd.chunk.css",
-    "static/js/main.993fba9d.chunk.js"
+    "static/js/main.12a328d1.chunk.js"
   ]
 }

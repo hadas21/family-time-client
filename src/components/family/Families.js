@@ -12,7 +12,6 @@ function Families (props) {
   useEffect(() => {
     indexFamilies(user)
       .then((res) => setFamilies(res.data.families))
-      .then(() => console.log(families, created))
       .catch(console.error)
   }, [created])
 

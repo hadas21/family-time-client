@@ -2,7 +2,6 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 export const signUp = (credentials) => {
-  console.log(credentials)
   return axios({
     method: 'POST',
     url: apiUrl + '/sign-up/',
@@ -33,6 +32,16 @@ export const signOut = (user) => {
   return axios({
     url: apiUrl + '/sign-out/',
     method: 'DELETE',
+    headers: {
+      Authorization: `Token ${user.token}`
+    }
+  })
+}
+
+export const indexUsers = (user) => {
+  return axios({
+    url: apiUrl + '/index/',
+    method: 'GET',
     headers: {
       Authorization: `Token ${user.token}`
     }

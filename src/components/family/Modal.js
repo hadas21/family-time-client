@@ -1,16 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import Accordion from 'react-bootstrap/Accordion'
+// import Dropdown from 'react-bootstrap/Dropdown'
+// import DropdownButton from 'react-bootstrap/DropdownButton'
 import { BiMessageSquareAdd } from 'react-icons/bi'
 
 import { createFamily } from '../../api/familyApi'
+import { indexUsers } from '../../api/auth'
 
 function FamModal (props) {
   const [family, setFamily] = useState({ name: '', members: [] })
-  //   const [famMembers, setFamMembers] = useState(null)
+  const [allUsers, setAllUsers] = useState([])
   const [show, setShow] = useState(false)
+
+  const { createdTrigger, user } = props
+
+  useEffect(() => {
+    indexUsers(user)
+      .then((res) => {
+        // console.log(res)
+        setAllUsers(res.data.users)
+      })
+      .catch(console.error)
+  }, [])
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -21,7 +36,6 @@ function FamModal (props) {
     setFamily({ name: event.target.value })
   }
 
-  const { createdTrigger } = props
   const handleSubmit = event => {
     event.preventDefault()
 
@@ -30,6 +44,12 @@ function FamModal (props) {
       .then(() => createdTrigger())
       .catch(console.error)
   }
+
+  const allUser = allUsers.map((user) => (
+    <p key={user.id}>
+      <Form.Check type='checkbox' label={user.email} />
+    </p>
+  ))
 
   return (
     <>
@@ -40,7 +60,7 @@ function FamModal (props) {
       <Modal show={show} onHide={handleClose}>
         <Form onSubmit={handleSubmit}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Add your Family</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form.Group className='mb-3' controlId='formBasicEmail'>
@@ -51,12 +71,31 @@ function FamModal (props) {
                 onChange={handleChange}
               />
             </Form.Group>
+            <Accordion defaultActiveKey='0' flush>
+              <Accordion.Item eventKey='0'>
+                <Accordion.Header>Select family members</Accordion.Header>
+                <Accordion.Body>
+                  {allUser}
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+            {/* <DropdownButton
+              id='dropdown-button-dark-example2'
+              variant='secondary'
+              menuVariant='dark'
+              title='Select Family Members'
+              className='mt-2'>
 
+              {/* <Dropdown.Toggle
+                id='dropdown-button-dark-example1'
+                variant='secondary'>
+Dropdown Button
+              </Dropdown.Toggle> */}
+
+            {/* </DropdownButton> */}
             {/* <Form.Select aria-label='Floating label select example'>
               <option>Select family members</option>
-              <option value='1'>One</option>
-              <option value='2'>Two</option>
-              <option value='3'>Three</option>
+              {allUsers}
             </Form.Select> */}
           </Modal.Body>
           <Modal.Footer>

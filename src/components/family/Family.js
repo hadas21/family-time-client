@@ -41,7 +41,6 @@ function Family (props) {
 
   const deleteFam = () => {
     deleteFamily(user, props.match.params.id)
-      .then(res => console.log(res))
       .then(() => props.createdTrigger())
       .then(() => setDeleted(!deleted))
       .then(() => history.push('/families'))

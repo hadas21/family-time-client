@@ -1,107 +1,36 @@
 import React, { Fragment } from 'react'
-// import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { NavLink } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
-import { FiLogOut, FiUser } from 'react-icons/fi'
+import Container from 'react-bootstrap/Container'
 
-import { IconContext } from 'react-icons'
+const generateUserName = (user) => {
+  const userName = user.split('@')
+  return userName[0]
+}
 
-import FamModal from '../family/Modal'
-
-// const authenticatedOptions = (
-//   <>
-//     <NavLink to='/change-password' className='nav-link col-3 px-auto'>
-//       <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
-//         <div>
-//           <FiUser />
-//         </div>
-//       </IconContext.Provider>
-//     </NavLink>
-//     <NavLink to='/change-password' className='nav-link col-3 px-auto'>
-//       <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
-//         <div>
-//           <FamModal user={user} createdTrigger={createdTrigger} />
-//           <BiMessageSquareAdd />
-//         </div>
-//       </IconContext.Provider>
-//     </NavLink>
-//     <NavLink to='/sign-out' className='nav-link col-3 px-auto'>
-//       <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
-//         <div>
-//           <FiLogOut />
-//         </div>
-//       </IconContext.Provider>
-//     </NavLink>
-//   </>
-// )
-
-const unauthenticatedOptions = (
-  <>
-    <NavLink to='/sign-up' className='nav-link col-5 px-auto'>
-      <Button className='col-12' variant='dark'>
-Register
-      </Button>
-    </NavLink>
-    <NavLink to='/sign-in' className='nav-link col-5 px-auto'>
-      <Button className='col-12' variant='outline-dark'>
-Log In
-      </Button>
-    </NavLink>
-  </>
-)
-
-// const alwaysOptions = (
-//   <Fragment>
-//     <NavLink exact to='/' className='nav-link'>Home</NavLink>
-//   </Fragment>
-// )
-
-const Header = ({ user, createdTrigger }) => (
+const Header = ({ user }) => (
   <>
     <Navbar
-      bg='transparent'
+      bg='dark'
       variant='dark'
       expand='md'
       className='p-2 row'
-      fixed='bottom'>
-      {/* <Navbar.Toggle aria-controls='basic-navbar-nav' /> */}
-
-      <>
-        {user && (
-          <span className='navbar-text mr-2'>Welcome, {user.email}</span>
-        )}
-        {/* {alwaysOptions} */}
-        {user
-          ? (
-            <>
-              <NavLink to='/change-password' className='nav-link col-3 px-auto'>
-                <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
-                  <div>
-                    <FiUser />
-                  </div>
-                </IconContext.Provider>
-              </NavLink>
-              <NavLink to='/change-password' className='nav-link col-3 px-auto'>
-                <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
-                  <div>
-                    <FamModal user={user} createdTrigger={createdTrigger} />
-                  </div>
-                </IconContext.Provider>
-              </NavLink>
-              <NavLink to='/sign-out' className='nav-link col-3 px-auto'>
-                <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
-                  <div>
-                    <FiLogOut />
-                  </div>
-                </IconContext.Provider>
-              </NavLink>
-            </>
-          )
-          : (
-            unauthenticatedOptions
+      fixed='top'>
+      <Container>
+        <Navbar.Brand href='#home'>
+          <img
+            src='/public/favicon.ico'
+            width='20'
+            height='20'
+            className='d-inline-block align-top'
+            alt=''
+          />
+          {user && (
+            <span className='navbar-text mx-3 fs-6'>
+Welcome, {generateUserName(user.email)}
+            </span>
           )}
-      </>
+        </Navbar.Brand>
+      </Container>
     </Navbar>
   </>
 )

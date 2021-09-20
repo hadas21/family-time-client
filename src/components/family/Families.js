@@ -18,9 +18,11 @@ function Families (props) {
 
   const allCreatedFams = families.map((fam) => (
     <Link key={fam.id} to={`/families/${fam.id}`}>
-      <Button variant='dark' type='button'>
-        {fam.name}
-      </Button>
+      <div className='d-grid gap-2 rounded-3 mt-3'>
+        <Button className='p-2' variant='dark' type='button'>
+          {fam.name}
+        </Button>
+      </div>
     </Link>
   ))
 
@@ -31,10 +33,11 @@ function Families (props) {
   }
 
   return (
-    <>
-
-      <ul>{allCreatedFams}</ul>
-    </>
+    <section className='pt-5'>
+      <h1 className='mt-5 mb-3'>Your Families:</h1>
+      <p className='mb-5'>Click to view or edit</p>
+      <ul className='p-0'>{allCreatedFams}</ul>
+    </section>
   )
 }
 

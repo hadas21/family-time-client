@@ -59,15 +59,22 @@ function Family (props) {
             value={family.name}
             onChange={handleChange}
             id='family-name'
+            className='fs-1 mt-5'
           />
         </Form.Group>
-        <Button variant='dark' onClick={updateFam}>
-Save
-        </Button>
       </Form>
-      <Button variant='dark' onClick={deleteFam}>
+      <div className='row mx-auto'>
+        <div className='col-6'>
+          <Button className='col-12 p-2 rounded-3' variant='dark' onClick={updateFam}>
+Save
+          </Button>
+        </div>
+        <div className='col-6'>
+          <Button className='col-12 p-2 rounded-3' variant='dark' onClick={deleteFam}>
 Delete
-      </Button>
+          </Button>
+        </div>
+      </div>
     </>
   )
 }

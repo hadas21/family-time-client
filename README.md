@@ -22,7 +22,9 @@ Be with your family wherever you go. With Family Time, you can create your own f
 
 - React js
 - React-BootStrap
+- React-icons
 - Css
+
 
 ### Back End:
 - Django
@@ -38,8 +40,7 @@ Be with your family wherever you go. With Family Time, you can create your own f
 ---
 ## Unsolved Problems:
 - when creating a family, the family members array does not populate with the members. right now, that code is commented out in the client side, but the backend does have a member field in the family model that always stays empty. 
-- I used a button for the create family icon and when it is clicked, a border shows up. couldn't get rid of it. the same thing happens in the family component. the family name is editable because it is in a form input element without a border. 
-
+- I used a button for the create family icon and when it is clicked, a border shows up. couldn't get rid of it.
 ---
 ## Instructions:
 

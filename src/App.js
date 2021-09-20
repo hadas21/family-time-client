@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
+import Footer from './components/Header/Footer'
 import Header from './components/Header/Header'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
@@ -52,10 +53,8 @@ render () {
 
   return (
     <Fragment>
-      <Header
-        user={user}
-        createdTrigger={this.createdTrigger}
-      />
+      <Footer user={user} createdTrigger={this.createdTrigger} />
+      <Header user={user} />
 
       {msgAlerts.map((msgAlert) => (
         <AutoDismissAlert

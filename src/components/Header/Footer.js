@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import { NavLink } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { FiLogOut, FiUser } from 'react-icons/fi'
+import { GrHome } from 'react-icons/gr'
 
 import { IconContext } from 'react-icons'
 
@@ -31,19 +32,19 @@ Log In
 const Footer = ({ user, createdTrigger }) => (
   <>
     <Navbar
-      bg='transparent'
+      bg='#f9f5e3 '
       variant='dark'
       expand='md'
       className='p-2 row'
       fixed='bottom'>
       <>
-
         {user
           ? (
             <>
               <div className='col-3 px-auto'>
                 <NavLink to='/change-password' className='nav-link'>
-                  <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+                  <IconContext.Provider
+                    value={{ color: 'black', size: '1.7rem' }}>
                     <div>
                       <FiUser />
                     </div>
@@ -51,8 +52,19 @@ const Footer = ({ user, createdTrigger }) => (
                 </NavLink>
               </div>
               <div className='col-3 px-auto'>
+                <NavLink to='/families' className='nav-link'>
+                  <IconContext.Provider
+                    value={{ color: 'black', size: '1.7rem' }}>
+                    <div>
+                      <GrHome />
+                    </div>
+                  </IconContext.Provider>
+                </NavLink>
+              </div>
+              <div className='col-3 px-auto'>
                 <Nav className='nav-link'>
-                  <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+                  <IconContext.Provider
+                    value={{ color: 'black', size: '1.7rem' }}>
                     <div>
                       <FamModal user={user} createdTrigger={createdTrigger} />
                     </div>
@@ -61,7 +73,8 @@ const Footer = ({ user, createdTrigger }) => (
               </div>
               <div className='col-3 px-auto'>
                 <NavLink to='/sign-out' className='nav-link'>
-                  <IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+                  <IconContext.Provider
+                    value={{ color: 'black', size: '1.7rem' }}>
                     <div>
                       <FiLogOut />
                     </div>

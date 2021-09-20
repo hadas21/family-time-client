@@ -15,6 +15,9 @@ function Family (props) {
 
     setFamily({ name: event.target.value })
   }
+  function handleSubmit (event) {
+    event.preventDefault()
+  }
 
   const updateFam = () => {
     updateFamily(family, user, props.match.params.id)
@@ -51,7 +54,9 @@ function Family (props) {
 
   return (
     <>
-      <Form>
+      <Form
+        onSubmit={handleSubmit}
+        className='mt-5 pt-3'>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
           <Form.Control
             required
@@ -65,12 +70,18 @@ function Family (props) {
       </Form>
       <div className='row mx-auto'>
         <div className='col-6'>
-          <Button className='col-12 p-2 rounded-3' variant='dark' onClick={updateFam}>
+          <Button
+            className='col-12 p-2 rounded-3'
+            variant='dark'
+            onClick={updateFam}>
 Save
           </Button>
         </div>
         <div className='col-6'>
-          <Button className='col-12 p-2 rounded-3' variant='dark' onClick={deleteFam}>
+          <Button
+            className='col-12 p-2 rounded-3'
+            variant='dark'
+            onClick={deleteFam}>
 Delete
           </Button>
         </div>

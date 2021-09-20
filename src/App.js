@@ -11,7 +11,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-
+import Welcome from './components/Header/Welcome'
 import Families from './components/family/Families'
 import Family from './components/family/Family'
 
@@ -55,6 +55,7 @@ render () {
     <Fragment>
       <Footer user={user} createdTrigger={this.createdTrigger} />
       <Header user={user} />
+      <Route exact path='/' render={() => <Welcome user={user} />} />
 
       {msgAlerts.map((msgAlert) => (
         <AutoDismissAlert

@@ -2,6 +2,8 @@
 
 Be with your family wherever you go. With Family Time, you can create your own family group and add your loved ones as members in your family.
 
+![family time screen shot](./src/img/embeded%20screen%20shot.png)
+
 ---
 
 ## user stories
@@ -59,4 +61,4 @@ Feel free to add any cool features to my app! to do that, follow the steps below
 
 - [Family Time Api Repo](https://github.com/hadas21/FamilyTimeApi)
 - [Family Time deployed website]()
-- [Family Time deployed back end]()
+- [Family Time deployed back end](https://family-time-api.herokuapp.com/)

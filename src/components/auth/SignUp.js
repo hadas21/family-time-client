@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
+import Welcome from '../Header/Welcome'
 import { signUp, signIn } from '../../api/auth'
 import { signUpSuccess, signUpFailure } from '../AutoDismissAlert/messages'
 
@@ -53,51 +53,54 @@ render () {
   const { email, password, passwordConfirmation } = this.state
 
   return (
-    <div className='row'>
-      <div className='col-sm-10 col-md-8 mx-auto mt-5 pt-5'>
-        <h3>Register</h3>
-        <Form onSubmit={this.onSignUp}>
-          <Form.Group controlId='email'>
-            <Form.Control
-              className='mb-3 mt-4 border border-dark rounded-0 p-2'
-              required
-              type='email'
-              name='email'
-              value={email}
-              placeholder='Enter email'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='password'>
-            <Form.Control
-              className='mb-3 border border-dark rounded-0 p-2 '
-              required
-              name='password'
-              value={password}
-              type='password'
-              placeholder='Password'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='passwordConfirmation'>
-            <Form.Control
-              className='mb-3 border border-dark rounded-0 p-2'
-              required
-              name='passwordConfirmation'
-              value={passwordConfirmation}
-              type='password'
-              placeholder='Confirm Password'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <div className='d-grid gap-2 rounded-3'>
-            <Button className='p-2' variant='dark' type='submit'>
+    <>
+      <div className='row'>
+        <div className='col-sm-10 col-md-8 mx-auto mt-5 pt-5'>
+          <Form onSubmit={this.onSignUp}>
+            <h3>Register</h3>
+            <Form.Group controlId='email'>
+              <Form.Control
+                className='mb-3 mt-4 border border-dark rounded-0 p-2'
+                required
+                type='email'
+                name='email'
+                value={email}
+                placeholder='Enter email'
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId='password'>
+              <Form.Control
+                className='mb-3 border border-dark rounded-0 p-2 '
+                required
+                name='password'
+                value={password}
+                type='password'
+                placeholder='Password'
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId='passwordConfirmation'>
+              <Form.Control
+                className='mb-3 border border-dark rounded-0 p-2'
+                required
+                name='passwordConfirmation'
+                value={passwordConfirmation}
+                type='password'
+                placeholder='Confirm Password'
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <div className='d-grid gap-2 rounded-3'>
+              <Button className='p-2' variant='dark' type='submit'>
 Submit
-            </Button>
-          </div>
-        </Form>
+              </Button>
+            </div>
+          </Form>
+        </div>
       </div>
-    </div>
+      <Welcome />
+    </>
   )
 }
 }

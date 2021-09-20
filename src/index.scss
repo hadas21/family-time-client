@@ -27,3 +27,17 @@ background-color: #f9f5e3;
 #family-name:focus{
     outline: none !important;
 }
+
+#welcome-sign {
+    // position: absolute;
+    z-index: 0;
+}
+
+form {
+    position:relative;
+    z-index: 1000;
+}
+nav {
+     background-color:  #f9f5e3 !important;
+
+}

@@ -41,10 +41,6 @@ function FamModal (props) {
   function handleCheck (event) {
     event.persist()
 
-    // this.setState((previousState) => ({
-    // myArray: [...previousState.myArray, 'new value'],
-    // }))
-
     console.log(event.target.id)
     if (event.target.checked) {
       const newMember = event.target.id
@@ -52,14 +48,13 @@ function FamModal (props) {
     } else {
       setMembers(members.filter(member => member !== event.target.id))
     }
-
-    // console.log(members)
   }
 
   const handleSubmit = event => {
     event.preventDefault()
 
     createFamily(family, members, props.user)
+      // .then((res) => console.log(res))
       .then(() => setShow(false))
       .then(() => createdTrigger())
       .catch(console.error)

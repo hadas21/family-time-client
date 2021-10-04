@@ -1,7 +1,8 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const createFamily = (data, user) => {
+export const createFamily = (family, members, user) => {
+  console.log(family, members, user)
   return axios({
     method: 'POST',
     url: apiUrl + '/families/',
@@ -10,8 +11,8 @@ export const createFamily = (data, user) => {
     },
     data: {
       family: {
-        name: data.name,
-        members: data.members
+        name: family,
+        members: members
       }
     }
   })

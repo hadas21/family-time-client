@@ -12,8 +12,9 @@ import { createFamily } from '../../api/familyApi'
 import { indexUsers } from '../../api/auth'
 
 function FamModal (props) {
-  const [family, setFamily] = useState({ name: '', members: [] })
+  const [family, setFamily] = useState('')
   const [allUsers, setAllUsers] = useState([])
+  const [members, setMembers] = useState([])
   const [show, setShow] = useState(false)
 
   const { createdTrigger, user } = props
@@ -21,7 +22,7 @@ function FamModal (props) {
   useEffect(() => {
     indexUsers(user)
       .then((res) => {
-        // console.log(res)
+        console.log(res)
         setAllUsers(res.data.users)
       })
       .catch(console.error)
@@ -33,13 +34,32 @@ function FamModal (props) {
   function handleChange (event) {
     event.persist()
 
-    setFamily({ name: event.target.value })
+    // console.log(event.target.checked.key)
+    setFamily(event.target.value)
+  }
+
+  function handleCheck (event) {
+    event.persist()
+
+    // this.setState((previousState) => ({
+    // myArray: [...previousState.myArray, 'new value'],
+    // }))
+
+    console.log(event.target.id)
+    if (event.target.checked) {
+      const newMember = event.target.id
+      setMembers((members) => [...members, newMember])
+    } else {
+      setMembers(members.filter(member => member !== event.target.id))
+    }
+
+    // console.log(members)
   }
 
   const handleSubmit = event => {
     event.preventDefault()
 
-    createFamily(family, props.user)
+    createFamily(family, members, props.user)
       .then(() => setShow(false))
       .then(() => createdTrigger())
       .catch(console.error)
@@ -47,7 +67,7 @@ function FamModal (props) {
 
   const allUser = allUsers.map((user) => (
     <p key={user.id}>
-      <Form.Check type='checkbox' label={user.email} />
+      <Form.Check type='checkbox' label={user.email} id={user.id} onChange={handleCheck} />
     </p>
   ))
 
